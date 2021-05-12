@@ -12,6 +12,7 @@ A Cookiecutter-based code structure template for a simple API to serve ML/DL mod
 - Auto clean code before making commits with `pre-commit`.
 - Pre-written Dockerfile.
 - Requirements split into multiple files (base, dev, prod).
+- Include `pip-chill` which is able to quickly export pip packages cleaner.
 - Cookiecutter will generate entire FastAPI project based on given info. The project stucture should include:
   - `data`: where ml models or static files stored
   - `envs`: env files for dev, staging or prod environment.
@@ -32,7 +33,7 @@ Install Cookiecutter
 Clone the project using cookiecutter, while cloning, you need to specify some information such as `project_name` or `short_description`, etc...
 
 ```bash
-  cookiecutter https://link-to-project
+  cookiecutter https://github.com/sudohainguyen/ml-fastapi-template
 ```
 
 Go to the project directory
