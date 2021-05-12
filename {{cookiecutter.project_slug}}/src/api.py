@@ -1,6 +1,8 @@
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.param_functions import Depends
 
+from api_models import JsonRequestModel, FormRequestModel
 from settings import APISettings
 
 app = FastAPI(
@@ -8,7 +10,7 @@ app = FastAPI(
     version="1.0",
     description="{{cookiecutter.short_description}}"
 )
-app_settings = APISettings()
+config = APISettings()
 
 
 @app.on_event('startup')
@@ -17,7 +19,7 @@ async def init():
     Initialize ML models
     '''
     # How to use app settings to load model
-    # model = load_model(app_settings.MODEL_DIR)
+    # model = load_model(config.MODEL_DIR)
     pass
 
 
@@ -29,8 +31,15 @@ async def health_check():
     }
 
 
-@app.post('/predict')
-async def predict():
+@app.post('/predictJson')
+async def predict_json(json_req: JsonRequestModel):
+    return {
+        'success': True
+    }
+
+
+@app.post('/predictForm')
+async def predict_form(form_req: FormRequestModel = Depends(FormRequestModel)):
     return {
         'success': True
     }
