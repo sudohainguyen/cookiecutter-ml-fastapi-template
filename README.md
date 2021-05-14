@@ -48,6 +48,11 @@ Install dependencies
   pip install requirements/dev.txt
 ```
 
+Install pre-commit hook
+```bash
+  pre-commit install
+```
+
 Start the server
 
 ```bash
