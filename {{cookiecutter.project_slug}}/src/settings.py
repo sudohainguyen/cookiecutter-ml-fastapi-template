@@ -1,5 +1,4 @@
 import os
-from dotenv import load_dotenv
 
 from pydantic import BaseSettings
 
@@ -9,9 +8,10 @@ env_file = 'envs/.env.prod'
 if ENV == 'DEV':
     env_file = 'envs/.env.dev'
 
-load_dotenv(env_file)
-
 
 class APISettings(BaseSettings):
-    MODEL_DIR: str = os.getenv('MODEL_DIR')
+    MODEL_DIR: str
     # ...
+    class Config:
+        env_file = env_file
+        env_file_encoding = "utf-8"
