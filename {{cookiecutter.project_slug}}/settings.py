@@ -2,11 +2,11 @@ import os
 
 from pydantic import BaseSettings
 
-ENV = os.getenv('ENV', default='PROD')
+ENV = os.getenv("ENV", default="PROD")
 
-env_file = 'envs/.env.prod'
-if ENV == 'DEV':
-    env_file = 'envs/.env.dev'
+env_file = "envs/.env.prod"
+if ENV == "DEV":
+    env_file = "envs/.env.dev"
 
 
 class APISettings(BaseSettings):
