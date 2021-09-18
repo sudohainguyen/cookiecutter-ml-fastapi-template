@@ -27,7 +27,7 @@ You can either create a virtual env python or use existing one
 Install Cookiecutter
 
 ```bash
-  pip install cookiecutter
+  pip install cookiecutter==1.7.3
 ```
 
 Clone the project using cookiecutter, while cloning, you need to specify some information such as `project_name` or `short_description`, etc...
